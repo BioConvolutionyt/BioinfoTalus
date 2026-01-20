@@ -42,7 +42,7 @@ BioinfoTalus 是一个面向生物信息学转录组数据分析的 R 脚本集�
 
 - **Bulk（TCGA 示例）**
   - `Bulk 转录组测序数据分析/TCGA表达数据处理.R`（生成表达矩阵 `.Rda`）
-  - `Bulk 转录组测序数据分析/差异分析.R`（DESeq2 差异分析，通常使用 counts）
+  - `Bulk 转录组测序数据分析/差异分析.R`（DESeq2 差异分析）
   - `Bulk 转录组测序数据分析/GO & KEGG富集分析.R` 与/或 `Bulk 转录组测序数据分析/GSEA.R`
   - `Bulk 转录组测序数据分析/免疫、肿瘤、基质评分计算.R`（ESTIMATE）
   - `Bulk 转录组测序数据分析/生存分析.R`、`单因素COX回归.R`、`多因素COX回归.R`、`LASSO.R`、`Nomogram.R`
@@ -115,3 +115,4 @@ BioinfoTalus 是一个面向生物信息学转录组数据分析的 R 脚本集�
 - **Email**：`YtLiu-53846@outlook.com`
 
 此外，如果你觉得这个项目对你有所帮助，欢迎点个⭐️支持一下，也欢迎在引用或分享时注明来源。衷心感谢大家的支持🙏！
+
