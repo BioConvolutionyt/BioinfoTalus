@@ -21,7 +21,7 @@ DimPlot(pbmc, group.by='celltype', label=TRUE)
   pbmc <- SetupForWGCNA(
     pbmc,
     gene_select = "fraction", 
-    fraction = 0.05, #选择至少在5%的细胞中表达的基因
+    fraction = 0.05, # 选择至少在5%的细胞中表达的基因
     wgcna_name = "tutorial" 
   )
 }
@@ -136,7 +136,7 @@ pbmc <- ModuleExprScore(
 # 可视化
 plot_list <- ModuleFeaturePlot(
   pbmc,
-  features='hMEs',# 可选择MEs、hMEs、scores、average
+  features='hMEs', # 可选择MEs、hMEs、scores、average
   order=TRUE,
 )
 
@@ -197,6 +197,7 @@ HubGeneNetworkPlot(
   mods = "all"
 )
 dev.off()
+
 
 
 
