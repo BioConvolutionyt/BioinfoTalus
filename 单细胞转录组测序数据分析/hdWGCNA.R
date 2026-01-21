@@ -5,22 +5,19 @@ library(patchwork)
 library(WGCNA)
 library(hdWGCNA)
 library(igraph)
-load("./Data/pbmc.Rda")
+load("Data/pbmc.Rda")
 
-#初始化参数
+# 初始化参数
 {
   theme_set(theme_cowplot())
   set.seed(42)
   enableWGCNAThreads(nThreads = 7)
 }
 
-
-#可视化一下看看
 DimPlot(pbmc, group.by='celltype', label=TRUE) 
 
-
 {
-  #创建WGCNA对象
+  # 创建WGCNA对象
   pbmc <- SetupForWGCNA(
     pbmc,
     gene_select = "fraction", 
@@ -29,7 +26,7 @@ DimPlot(pbmc, group.by='celltype', label=TRUE)
   )
 }
 
-#构造metacells
+# 构造metacells
 pbmc <- MetacellsByGroups(
   pbmc = pbmc,
   group.by = c("celltype", "seurat_clusters"), 
@@ -44,10 +41,10 @@ pbmc <- MetacellsByGroups(
   pbmc <- NormalizeMetacells(pbmc)
 }
 
-#创建表达矩阵用于WGCNA
+# 创建表达矩阵用于WGCNA
 pbmc <- SetDatExpr(
   pbmc,
-  group_name = "T_cells", #挑选感兴趣的细胞类型
+  group_name = "T_cells", # 挑选感兴趣的细胞类型
   group.by='celltype', 
   assay = 'SCT',
   slot = 'data' 
@@ -100,7 +97,7 @@ pbmc <- ModuleEigengenes(
 pbmc <- ModuleConnectivity(
   pbmc,
   group.by = 'celltype', 
-  group_name = 'Vascular Myocyte'# 感兴趣的细胞类型的kME
+  group_name = 'Vascular Myocyte' # 感兴趣的细胞类型的kME
 )
 
 # 重命名module，
@@ -117,7 +114,7 @@ P3
   # 获取模块分配表
   modules <- GetModules(pbmc)%>%subset(module!="grey")
 }
-#获取那些与每个模块高度连接的基因（hub genes）
+# 获取那些与每个模块高度连接的基因（hub genes）
 hub_df <- GetHubGenes(pbmc, n_hubs = 100)
 
 write.csv(hub_df,"Data/hub_df_gene.csv")
@@ -150,7 +147,7 @@ p4
 {
   ModuleCorrelogram(pbmc)
 }
-#下面两种图很重要，直接把模块与亚群，也就是表型相联系，
+# 下面两种图很重要，直接把模块与亚群，也就是表型相联系，
 {
   # get hMEs from seurat object
   MEs <- GetMEs(pbmc, harmonized=TRUE)
@@ -173,7 +170,7 @@ p6
 
 p <- VlnPlot(
   pbmc,
-  features = 'Vascular Myocyte3',##换成自己的模块
+  features = 'Vascular Myocyte3', # 换成自己的模块
   group.by = 'celltype',
   pt.size = 0 # don't show actual data points
 )
@@ -185,20 +182,21 @@ p <- p + geom_boxplot(width=.25, fill='white')
 p7 <- p + xlab('') + ylab('hME') + NoLegend()
 p7
 
-#核心基因的交互网络
-ModuleNetworkPlot(pbmc) #输出结果在ModuleNetworks文件夹
+# 核心基因的交互网络
+ModuleNetworkPlot(pbmc) # 输出结果在ModuleNetworks文件夹
 
-#可视化多个网络模块
+# 可视化多个网络模块
 HubGeneNetworkPlot(
   pbmc,
   vertex.label.cex = 0.8,   # 控制模块标签字体大小
-  hub.vertex.size = 8, #hub基因节点的大小
-  other.vertex.size = 3, #其他基因节点的大小
+  hub.vertex.size = 8, # hub基因节点的大小
+  other.vertex.size = 3, # 其他基因节点的大小
   n_hubs = 2, # 用于可视化的
   n_other = 5, # 随机选取的gene 
   edge_prop = 0.55, # 采样的边数
   mods = "all"
 )
 dev.off()
+
 
 
