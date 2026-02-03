@@ -10,7 +10,7 @@ load("Data/pbmc.Rda")
 # 按照分组变量group.by构造伪变量进行两个Seurat对象之间的pseudo_bulk差异分析
 # 若两个Seurat对象构造的伪变量不一致，intersect_groups参数决定是否取交集再进行后续分析
 # assay用于指定参与差异分析的表达矩阵
-# method用于指定差异分析方法，可选edgeR（基于负二项回归），limma（基于线性模型）
+# method用于指定差异分析方法，可选 edgeR（基于负二项分布），limma（基于线性模型）
 pesudoBulkDE <- function(obj1, obj2,
                              group.by,
                              intersect_groups = TRUE,
