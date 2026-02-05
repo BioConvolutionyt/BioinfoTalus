@@ -26,7 +26,7 @@ BioinfoTalus 是一个面向生物信息学转录组数据分析的 R 脚本集�
 
 ### 🧩数据文件下载
 
-项目提供的示例数据、参考资源与部分运行结果文件较大，请从 GitHub Releases 下载 (<a href="https://github.com/BioConvolutionyt/BioinfoTalus/releases/tag/datafiles"</a>)：
+项目提供的示例数据、参考资源与部分运行结果文件较大，请从 GitHub Releases 下载 ([datafiles](https://github.com/BioConvolutionyt/BioinfoTalus/releases/tag/datafiles))：
 
 1. 下载所有 `data_split*.zip` 文件；
 2. 解压；
@@ -115,6 +115,7 @@ BioinfoTalus 是一个面向生物信息学转录组数据分析的 R 脚本集�
 - **Email**：`YtLiu-53846@outlook.com`
 
 此外，如果你觉得这个项目对你有所帮助，欢迎点个⭐️支持一下，也欢迎在引用或分享时注明来源。后续可能还会不定期更新一些新的算法，衷心感谢大家的支持🙏！
+
 
 
 
