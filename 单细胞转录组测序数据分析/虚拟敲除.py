@@ -23,8 +23,9 @@ df.index.name = None
 print("Begin the formal analysis")
 sc = scTenifoldKnk(data=df,
                    ko_method="default",
-                   ko_genes=["CRYZ"],  # the gene you wants to knock out
+                   ko_genes=["CRYZ"],  # 待敲除的基因，可以是一个也可以是多个
                    qc_kws={"min_lib_size": 10, "min_percent": 0.001, "min_exp_avg": 0.01},
                    )
 result = sc.build()
 result.to_csv("Data/vKnockout_result.csv")
+
