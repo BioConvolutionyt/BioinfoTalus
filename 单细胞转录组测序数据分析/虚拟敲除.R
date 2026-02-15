@@ -1,6 +1,7 @@
 # 由于使用 R 语言执行虚拟敲除将会极为耗时
 # 该脚本的核心流程基于 reticulate 调用 Python 实现（https://github.com/qwerty239qwe/scTenifoldpy）
 # 脚本会自动创建/复用 Python环境，无需手动配置
+# 若需要纯 Python 版本，见虚拟敲除.py
 library(reticulate)
 library(Seurat)
 library(tibble)
@@ -247,4 +248,5 @@ message("Done. Output: ", cfg$output_csv)
 
 # 初次运行由于需要配置环境，可能较慢
 run_pipeline(CFG)
+
 
