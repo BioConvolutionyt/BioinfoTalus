@@ -21,8 +21,8 @@ CFG <- list(
   
   # 虚拟敲除参数
   strict_lambda = 0,
-  ko_method = "default",
-  ko_genes = c("CRYZ"),
+  ko_method = "default", # 敲除方法，可选"default" / "propagation"
+  ko_genes = c("CRYZ"), # 待敲除的基因，可以是单个也可以是多个
   # sc_QC 质控参数（均为可选）：
   # - min_lib_size: 细胞总计数（library size/counts）下限；低于该值的细胞会被移除
   # - remove_outlier_cells: 是否按 IQR 规则移除离群细胞（TRUE/FALSE）
@@ -247,3 +247,4 @@ message("Done. Output: ", cfg$output_csv)
 
 # 初次运行由于需要配置环境，可能较慢
 run_pipeline(CFG)
+
