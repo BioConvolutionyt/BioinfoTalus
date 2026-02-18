@@ -117,7 +117,7 @@ FeatureDimPlot(
     plot.title = element_blank()
   )
 )+
-  geom_path(data = curves_df, 
+  geom_path(data = curves_df_all, 
             aes(x = Dim1, y = Dim2), 
             group = 1,
             linewidth = 1,
@@ -125,3 +125,4 @@ FeatureDimPlot(
 
 subgroups <- pbmc
 save(subgroups, file="./Data/subgroups.Rda")
+
