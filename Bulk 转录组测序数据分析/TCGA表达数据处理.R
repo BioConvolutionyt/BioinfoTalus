@@ -54,7 +54,7 @@ matrix$type <- names[, 2]
 matrix <- matrix[, c(ncol(matrix), 1:(ncol(matrix) - 1))]  # 调整列顺序
 matrix <- matrix[, c(ncol(matrix), 1:(ncol(matrix) - 1))]  # 调整列顺序
 
-# 提取蛋白质编码基因与长链非编码RNA基因
+# 提取蛋白质编码基因
 counts_matrix <- matrix[matrix$type %in% c("protein_coding"), ] # 需要提取其他类型的基因如lncRNA,可在这里修改
 counts_matrix$type <- NULL
 
