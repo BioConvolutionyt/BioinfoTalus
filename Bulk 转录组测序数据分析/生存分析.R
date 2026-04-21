@@ -41,6 +41,7 @@ pValue <- 1 - pchisq(fitd$chisq, length(fitd$n) - 1)
 fit <- survfit(Surv(OS.time, OS)~ group, data = surv)
 summary(fit)
 p.lab <- paste0("P", ifelse(pValue < 0.001, " < 0.001", paste0(" = ",round(pValue, 3))))
+p.lab <- paste0(p.lab, ifelse(pValue <= 0.05 && pValue > 0.01, "*", ifelse(pValue < 0.01 && pValue > 0.001, "**",ifelse(pValue > 0.05, "", "***"))))
 
 survplot <- ggsurvplot(fit,
                        data = surv,
